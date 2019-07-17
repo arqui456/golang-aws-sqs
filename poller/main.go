@@ -6,7 +6,7 @@ import (
 
     "github.com/aws/aws-sdk-go/aws"
     "github.com/aws/aws-sdk-go/service/sqs"
-    SqsService "github.com/architsmat38/golang-aws-sqs/sqs"
+    SqsService "github.com/arqui456/golang-aws-sqs/sqs"
 )
 
 // HandlerFunc is used to define the Handler that is run on for each message
