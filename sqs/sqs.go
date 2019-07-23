@@ -32,12 +32,11 @@ func Send(message string) (*sqs.SendMessageOutput, error) {
 }
 
 // SendFifo ....
-func SendFifo(message string, messageGroupID string, messageDeduplicationID string) (*sqs.SendMessageOutput, error) {
-	encodedMessage := Encode([]byte(message))
+func SendFifo(message []byte, messageGroupID string, messageDeduplicationID string) (*sqs.SendMessageOutput, error) {
 
 	return SQSClient.SQS.SendMessage(&sqs.SendMessageInput{
 		QueueUrl:               &SQSClient.URL,
-		MessageBody:            aws.String(string(encodedMessage)),
+		MessageBody:            aws.String(string(message)),
 		MessageGroupId:         aws.String(messageGroupID),
 		MessageDeduplicationId: aws.String(messageDeduplicationID),
 	})
